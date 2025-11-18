@@ -15,8 +15,7 @@ public class ConfiguracionSeguridad {
         http
             .csrf(csrf -> csrf.disable())
             .authorizeHttpRequests(autorizacion -> autorizacion
-                .requestMatchers("/jwt/**").permitAll()
-                .anyRequest().authenticated()
+                .anyRequest().permitAll()
             );
         
         return http.build();
