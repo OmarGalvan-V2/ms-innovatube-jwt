@@ -1,0 +1,37 @@
+services:
+  innovatube-jwt:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: innovatube-jwt
+    restart: unless-stopped
+    init: true
+    ports:
+      - "8092:8092"
+    networks:
+      - innovatube-network
+    depends_on:
+      - config-server
+      - eureka-server
+      - mysql-db
+
+  mysql-db:
+    image: mysql:8.0
+    container_name: mysql-db-jwt
+    restart: unless-stopped
+    environment:
+      MYSQL_ROOT_PASSWORD: sasa1234
+      MYSQL_DATABASE: db_personal
+    ports:
+      - "3307:3306"
+    networks:
+      - innovatube-network
+    volumes:
+      - mysql_jwt_data:/var/lib/mysql
+
+volumes:
+  mysql_jwt_data:
+
+networks:
+  innovatube-network:
+    driver: bridge
