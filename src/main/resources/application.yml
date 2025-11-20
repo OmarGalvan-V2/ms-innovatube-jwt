@@ -1,6 +1,6 @@
 spring:
   config:
-    import: optional:configserver:https://ms-innovatube-config-server:8888/
+    import: configserver:https://ms-innovatube-config-server/
   application:
     name: innovatube-jwt
     
