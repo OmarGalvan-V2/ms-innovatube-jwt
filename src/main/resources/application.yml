@@ -1,6 +1,6 @@
 spring:
   config:
-    import: configserver:https://ms-innovatube-config-server.onrender.com/
+    import: configserver:https://ms-innovatube-config-server-uxqd.onrender.com/
   application:
     name: innovatube-jwt
     
